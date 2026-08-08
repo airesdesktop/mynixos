@@ -235,7 +235,6 @@
 
       # ----- File browser -----
         superfile
-        # mc
       # ------------------------
 
       # ----- Editor -----
@@ -324,12 +323,8 @@
         zrythm
         ardour
         qtractor
-        # non
         muse
-        # tenacity
-        # rosegarden
           # ..... Plugins .....
-            # !!!!! TO WORK ON !!!!!
           # ...................
       # ---------------
     # =============================
