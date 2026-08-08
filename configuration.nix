@@ -253,11 +253,13 @@
       git
       vlc
       sublime
+      thunderbird
     # ======================
 
     # ===== Nix Editing =====
       direnv
       vscodium
+      neovim
     # =======================
 
     # ===== Python configuration =====
