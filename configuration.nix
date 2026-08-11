@@ -101,7 +101,7 @@
 
         # ..... JACK .....
           # If you want to use JACK applications, uncomment this
-          # jack.enable = true;
+          jack.enable = true;
         # ................
 
         # ..... More .....
@@ -231,7 +231,6 @@
       
       fastfetch
       bazaar
-      micro
 
       # ----- File browser -----
         superfile
@@ -265,11 +264,11 @@
     # ===== Python configuration =====
       python3
         # ----- Packages -----
-          python313Packages.textual-dev
+          # python313Packages.textual-dev
+          # python313Packages.jedi
         # --------------------
         # ----- IDE -----
-          spyder
-          thonny
+          # spyder
         # ---------------
     # ================================
 
@@ -302,7 +301,7 @@
       # ---------------
       # ----- Development -----
         godot
-        bluefish
+        # bluefish
       # -----------------------
       # ----- Design -----
         penpot-desktop
@@ -320,12 +319,12 @@
       # ----- DAW -----
         bitwig-studio
         bespokesynth
-        cardinal
+        # cardinal
         renoise
-        zrythm
-        ardour
-        qtractor
-        muse
+        # zrythm
+        # ardour
+        # qtractor
+        # muse
           # ..... Plugins .....
           # ...................
       # ---------------
