@@ -36,6 +36,10 @@
   # ||||| DESKTOP ENVIROMENT |||||
 
 
+  # ===== XFCE =====
+    # services.xserver.desktopManager.xfce.enable  = true;
+  # ================
+
   # ===== Plasma 6 =====
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
@@ -47,14 +51,14 @@
           kate
           qrca
           spectacle
-          drkonqi
+          # drkonqi
           kwrited
         # ....................
     
         # ..... Optional .....
           # Uncomment the line below if dolphin or discover are not needed.
             # dolphin   # <- This line.
-          discover  # <- This line.
+            # discover  # <- This line.
         # ....................
 
       ];
@@ -75,6 +79,8 @@
     # ------------------------------
 
   # ==================
+
+  # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
 
   # ===== COSMIC =====
     # services.displayManager.cosmic-greeter.enable = true;
