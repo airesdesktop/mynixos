@@ -33,15 +33,15 @@
   # ===========================
 
   
-  # ||||| DESKTOP ENVIROMENT / DESKTOP MODO |||||
+  # ||||| DESKTOP ENVIROMENT |||||
 
 
-  # ===== Display manager =====
-    services.xserver.enable = true;
-    services.xserver.displayManager.lightdm.enable = true;
-  # ===========================
+  # ===== XFCE =====
+    # services.xserver.desktopManager.xfce.enable  = true;
+  # ================
 
   # ===== Plasma 6 =====
+    # services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
 
     # ----- Setting -----
@@ -65,8 +65,29 @@
     # -------------------
 
   # ===================
-  
 
+  # ===== GNOME =====
+    services.displayManager.gdm.enable = true; # Gets login page.
+    services.desktopManager.gnome.enable = true; # Gets desktop enviroment.
+
+    # ----- Excluding packages -----
+      services.gnome.core-apps.enable = true;
+      services.gnome.core-developer-tools.enable = true;
+      services.gnome.rygel.enable = false;
+      # services.gnome.games.enable = false;
+      environment.gnome.excludePackages = with pkgs; [decibels snapshot rygel gnome-connections epiphany loupe d-spy totem];
+    # ------------------------------
+
+  # ==================
+
+  # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+
+  # ===== COSMIC =====
+    # services.displayManager.cosmic-greeter.enable = true;
+    # services.desktopManager.cosmic.enable = true;
+  # ==================
+
+  
   # ||||| Audio |||||
 
 
@@ -216,7 +237,7 @@
       
       fastfetch
       bazaar
-      
+
       # ----- wm -----
         # niri
       # --------------
@@ -244,12 +265,6 @@
       thunderbird
       # minitube
       smplayer
-      docker
-      pipe-viewer
-      gtk-pipe-viewer
-      youtube-viewer
-      youtube-tui
-      yt-dlp
     # ======================
 
     # ===== Nix Editing =====
