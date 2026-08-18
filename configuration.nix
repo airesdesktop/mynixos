@@ -116,6 +116,12 @@
   # ============================
 
   # ===== User-based Setup (Specialization) =====
+    services.logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleLidSwitchDocked = "lock";
+    };
+
     hardware.graphics = {
 
       # ----- Drivers -----
@@ -133,9 +139,11 @@
 
     };
 
-    # ===== Thermald =====
-      # services.thermald.enable = true;
-    # ====================
+    # ===== NixOS Power Management =====
+      powerManagement.enable = true;
+      powerManagement.powertop.enable = true;
+      services.thermald.enable = true;
+    # ==================================
 
     # ===== Intel Microcodes (Disable if wary). =====
       hardware.cpu.intel.updateMicrocode = true;
@@ -153,7 +161,7 @@
      # ==================
 
     # ===== Power profiles =====
-      services.power-profiles-daemon.enable = true;
+      # services.power-profiles-daemon.enable = true;
     # ==========================
 
     # ===== NVME =====
