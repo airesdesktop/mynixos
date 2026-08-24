@@ -1,3 +1,3 @@
-# My NixOS config.nix files, if you want for some reason
-
+# Jellynix
+A few of my configuration files, if you want them for some reason...
 Again, it's all stupidly organized for my sanity's sake because i am this way :P
