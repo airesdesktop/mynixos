@@ -7,6 +7,7 @@ Again, it's all stupidly organized for my sanity's sake because i am this way :P
 
 # Credits
 Some of the resources i made available here like cursors and plasmoids were not made by me, here are the credits (remind me if i forgot of any):
+
 Wii cursor: by allewun
 Bocchi cursor: by Nokia (https://ko-fi.com/nokia_yan)
 
