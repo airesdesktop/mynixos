@@ -8,7 +8,7 @@
         /etc/nixos/hardware-configuration.nix
       # ----------------------------
 
-      # ----- Getting main nix file -----
+      # ----- Getting main nix files -----
         ./boot.nix
         ./network.nix
         ./regionalization.nix
@@ -17,6 +17,10 @@
         ./users.nix
         ./specialization.nix
         ./software.nix
+      # ---------------------------------
+
+      # ------------ Python -------------
+        ./py.nix
       # ---------------------------------
 
     ];
