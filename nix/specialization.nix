@@ -61,6 +61,18 @@
       powerManagement.enable = true;
       powerManagement.powertop.enable = true;
       services.thermald.enable = true;
+      services.power-profiles-daemon.enable = false;
+      services.auto-cpufreq.enable = true;
+      services.auto-cpufreq.settings = {
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+      };
     # ==================================
 
     # ===== Intel Microcodes (Disable if wary). =====
@@ -85,6 +97,12 @@
     # ===== NVME ====================================================================================
       services.fstrim.enable = true;
     # ===============================================================================================
+
+    # ===== Swappiness =====
+      boot.kernel.sysctl = {
+        "vm.swappiness" = 10;
+      };
+    # ======================
 
     # ===== Kernel ==================================================================================
       boot.kernelModules = ["ideapad_acpi"];

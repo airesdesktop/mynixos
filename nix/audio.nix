@@ -29,4 +29,18 @@
       };
     # -----------------
   # ====================
+  # ===== Audio Group Setup =====
+    security.pam.loginLimits = [
+      { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+      { domain = "@audio"; item = "rtprio"; type = "-"; value = "90"; }
+    ];
+  # =============================
+  # ===== UDEV Settings =====
+    services.udev.extraRules = ''
+      # Grant write permissions for /dev/cpu_dma_latency to the audio group
+      DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
+    '';
+  # =========================
+
+
 }

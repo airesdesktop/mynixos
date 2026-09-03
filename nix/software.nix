@@ -36,6 +36,11 @@
     };
   # =================
 
+  # ===== AppImages =====
+    programs.appimage.enable = true;
+    programs.appimage.binfmt = true;
+  # =====================
+
   # ===== DCONF =====
     # programs.dconf.enable = true;
   # =================
@@ -49,6 +54,7 @@
       # ----- NixOS Tools -----
         nix-search-cli
         nix-inspect
+        home-manager
       # ----------------------
       
       fastfetch
@@ -144,6 +150,9 @@
       # --------------------
       # ----- Gaming -----
         steam
+        sgdboop
+        steamcmd
+        steam-tui
       # ------------------
       # ----- Art -----
         blender
@@ -154,10 +163,6 @@
         godot
         # bluefish
       # -----------------------
-      # ----- Design -----
-        penpot-desktop
-        lunacy
-      # ------------------
       # ----- Creation -----
         obs-studio
         # ..... OBS Plugins .....
@@ -175,7 +180,6 @@
         # zrythm
         # ardour
         # qtractor
-        # muse
           # ..... Plugins .....
           # ...................
       # ---------------

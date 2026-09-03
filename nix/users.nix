@@ -7,7 +7,7 @@
       # ----- Setup -----
         isNormalUser = true;
         description = "justcallmeaires";
-        extraGroups = [ "wheel" "networkmanager" "owner" ];
+        extraGroups = [ "wheel" "networkmanager" "audio" "owner" ];
       # -----------------
 
     };
