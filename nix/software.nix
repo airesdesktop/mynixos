@@ -100,6 +100,8 @@
       jetbrains.jdk
       lemurs
       kotlin
+      appimageupdate
+      gearlever
       lite
       surreal-engine
       mg
