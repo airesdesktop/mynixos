@@ -2,27 +2,24 @@
 
 {
   # ===== Allow unfree packages =====
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = false;
   # =================================
 
   # ===== Explorer =====
     programs.firefox = {
-
       # ----- Getting -----
         enable = true;
         package = pkgs.firefox-esr;
       # -------------------
 
-      # ----- Setting -----
-        # !!!!! TO WORK ON !!!!!
+      # ----- Settings -----
+        # working on...
       # -------------------
-
     };
   # ====================
 
   # ===== Steam =====
     programs.steam = {
-
       # ----- Getting -----
         enable = true;
         # packages = pkgs.millennium-steam;
@@ -32,7 +29,6 @@
         remotePlay.openFirewall = true; # Abra as portas no firewall para o Steam Remote Play
         dedicatedServer.openFirewall = true; # Abra as portas no firewall para o Source Dedicated Server
       # -------------------
-
     };
   # =================
 
@@ -45,10 +41,9 @@
     # programs.dconf.enable = true;
   # =================
 
-  # ;;;;; Configuration with no setup ;;;;;
+  # ;;;;; Configuration with no setup :::::
 
   environment.systemPackages = with pkgs; [
-    
     # ===== Default =====
 
       # ----- NixOS Tools -----
@@ -81,7 +76,7 @@
         # gnome-secrets
         # gsettings-desktop-schemas
       # --------------------------
-
+      
     # ===================
 
     # ===== Essentials =====

@@ -4,7 +4,7 @@
   # ===== Pipewire =====
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
-  
+
     # ----- Setup -----
       services.pipewire = {
         
@@ -20,27 +20,22 @@
           jack.enable = true;
         # ................
 
-        # ..... More .....
-          # use the example session manager (no others are packaged yet so this is enabled by default,
-          # no need to redefine it in your config for now)
-          # media-session.enable = true;
-        # ................
-
       };
     # -----------------
   # ====================
+
   # ===== Audio Group Setup =====
     security.pam.loginLimits = [
       { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
       { domain = "@audio"; item = "rtprio"; type = "-"; value = "90"; }
     ];
   # =============================
+
   # ===== UDEV Settings =====
     services.udev.extraRules = ''
       # Grant write permissions for /dev/cpu_dma_latency to the audio group
       DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
     '';
   # =========================
-
 
 }

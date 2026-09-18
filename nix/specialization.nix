@@ -1,15 +1,16 @@
 { config, pkgs, lib, ... }:
 
 {
+
   # ===== Import Musnix ========================================================================
   imports = [
-    ./mus.nix
+    ./modules/mus.nix
+    ./modules/jellypy.nix
   ];
   # ============================================================================================
+
   # ===== Display manager =========================================================================
-    services.xserver.enable = true;
     services.xserver.displayManager.lightdm.enable = true;
-    services.xserver.excludePackages = [pkgs.xterm];
   # ===============================================================================================
 
   # ===== Desktop manager =========================================================================
@@ -17,24 +18,18 @@
 
     # ----- Setting ----------------------------------------------------------------------------
       environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      
+        
         # ..... Removing .....
           kate
           qrca
           spectacle
           drkonqi
           kwrited
-        # ....................
-    
-        # ..... Optional .....
-          # Uncomment the line below if dolphin or discover are not needed.
-            # dolphin   # <- This line.
-            # discover  # <- This line.
+          # discover
         # ....................
 
       ];
     # ------------------------------------------------------------------------------------------
-
   # ===============================================================================================
 
   # ===== User-based Setup (Specialization) =======================================================
@@ -45,10 +40,8 @@
     };
 
     hardware.graphics = {
-
       # ----- Drivers ----------------------------------------------------------------------------
         enable = true;
-
         extraPackages = with pkgs; [
           # .........................................................................
             intel-media-driver      # Driver moderno essencial para o i5-1235U (iHD)
@@ -57,16 +50,14 @@
             # intel-media-sdk       # SDK de media legada.
           # .........................................................................
         ];
-        
       # ------------------------------------------------------------------------------------------
-
     };
 
     # ===== NixOS Power Management =====
       powerManagement.enable = true;
       powerManagement.powertop.enable = true;
       services.thermald.enable = true;
-      # services.power-profiles-daemon.enable = true;
+      services.power-profiles-daemon.enable = true;
     # ==================================
 
     # ===== Intel Microcodes (Disable if wary). =====
@@ -75,18 +66,12 @@
 
     # ===== Ananicy =====
       services.ananicy = {
-      
         # ----- Enable -----
         enable = true;
         package = pkgs.ananicy-cpp;
         # ------------------
-      
       };
-     # ==============================================================================================
-
-    # ----- Power profiles ---------------------------------------------------------------------
-      # services.power-profiles-daemon.enable = true;
-    # ------------------------------------------------------------------------------------------
+    # ==============================================================================================
 
     # ===== NVME ====================================================================================
       services.fstrim.enable = true;
@@ -99,7 +84,7 @@
     # ======================
 
     # ===== Kernel ==================================================================================
-      boot.kernelModules = lib.mkDefault ["ideapad_acpi"];
+      boot.kernelModules = ["ideapad_acpi"];
     # ===============================================================================================
 
   # ===============================================================================================
