@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  # ===== Import Musnix ========================================================================
+  imports = [
+    ./mus.nix
+  ];
+  # ============================================================================================
   # ===== Display manager =========================================================================
     services.xserver.enable = true;
     services.xserver.displayManager.lightdm.enable = true;
@@ -17,7 +22,7 @@
           kate
           qrca
           spectacle
-          # drkonqi
+          drkonqi
           kwrited
         # ....................
     
@@ -61,18 +66,7 @@
       powerManagement.enable = true;
       powerManagement.powertop.enable = true;
       services.thermald.enable = true;
-      services.power-profiles-daemon.enable = false;
-      services.auto-cpufreq.enable = true;
-      services.auto-cpufreq.settings = {
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
-      };
+      # services.power-profiles-daemon.enable = true;
     # ==================================
 
     # ===== Intel Microcodes (Disable if wary). =====
@@ -99,13 +93,13 @@
     # ===============================================================================================
 
     # ===== Swappiness =====
-      boot.kernel.sysctl = {
+      boot.kernel.sysctl = lib.mkDefault {
         "vm.swappiness" = 10;
       };
     # ======================
 
     # ===== Kernel ==================================================================================
-      boot.kernelModules = ["ideapad_acpi"];
+      boot.kernelModules = lib.mkDefault ["ideapad_acpi"];
     # ===============================================================================================
 
   # ===============================================================================================

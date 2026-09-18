@@ -26,6 +26,12 @@
     ];
   # ===================
 
-  system.stateVersion = "26.05"; # Did you read the comment?
+  # ===== DEFAULT OPTIMIZATIONS =====
+    nix.settings.auto-optimise-store = true;
+  # =================================
+  
+  # ===== SYSTEM VERSION =====
+    system.stateVersion = "26.05"; # Did you read the comment?
+  # ==========================
 
 }

@@ -86,17 +86,42 @@
 
     # ===== Essentials =====
       git
+      gnome-disk-utility
+      disktui
+      ffmpeg
       vlc
+      glslang
+      shaderc
+      glslls
+      glslviewer
+      slang
       sublime
+      nim
+      jetbrains.jdk
+      lemurs
+      kotlin
+      lite
+      surreal-engine
+      mg
+      # experimental vvv
+      vitejs
+
+      typescript-go
+      jetbrains.idea-oss
+      disko
+      jetbrains-mono
+      jetbrains.pycharm-oss
+      nimble
       thunderbird
       # minitube
       smplayer
       docker
-      pipe-viewer
       gtk-pipe-viewer
       youtube-viewer
       youtube-tui
       yt-dlp
+      jdk
+      jre
     # ======================
 
     # ===== Nix Editing =====
@@ -158,9 +183,11 @@
         blender
         povray
         libresprite
+        blockbench
       # ---------------
       # ----- Development -----
         godot
+        godot3
         # bluefish
       # -----------------------
       # ----- Creation -----
